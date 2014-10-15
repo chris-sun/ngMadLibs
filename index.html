@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ngMadLibs Subtractor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <style>
+      .border_line {
+        border: 1px solid black;
+      }
+      .header_box {
+        height: 150px;
+      }
+    </style>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script>
+      function isValidInputs(x, y) {
+        return (isNaN(x) || isNaN(y)) ? false : true
+      }
+      $(document).ready(function(){
+        $("#minusButton").click(function() {
+          x = parseInt($('#xInput').val());
+          y = parseInt($('#yInput').val());
+          if (!isValidInputs(x, y)) {
+            alert("Please enter valid inputs");
+            return;
+          }
+          r = x - y;
+          $('#result').text(x + ' - ' + y + ' is ' + r);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div ng-app class='container border_line' ng-init="female_name = 'Jody'; dirty_task = 'fixing bugs'">
+
+      <div class='row border_line header_box'>
+        <div class='col-md-2 border_line'>
+          <img src='./mad-lib-happy-face.png'/ height='140' width='150'>
+        </div>
+        <div class='col-md-10 border_line header_box'>
+          <img src='./ng-mad-libs-logo.png'/>
+          <h1>Automate This!</h1>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='col-md-12'>
+          <h1>Provide the following words</h1>
+          <table>
+            <tr>
+              <td><input type='text' ng-model='female_name' placeholder='Female Name'/></td>
+              <td><input type='text' ng-model='dirty_task' placeholder='Dirty Task'/></td>
+              <td><input type='text' ng-model='obnoxiuous_celebrity' placeholder='Obnoxious Celebrity'/></td>
+            </tr>
+            <tr>
+              <td><input type='text' ng-model='job_title' placeholder='Job Title'/></td>
+              <td><input type='text' ng-model='celebrity' placeholder='Celebrity'/></td>
+              <td><input type='text' ng-model='huge_number' placeholder='Huge Number'/></td>
+            </tr>
+            <tr>
+              <td><input type='text' ng-model='tedious_task' placeholder='Tedious Task'/></td>
+              <td><input type='text' ng-model='useless_skill' placeholder='Useless Skill'/></td>
+              <td><input type='text' ng-model='adjective' placeholder='Adjective'/></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class='row border_line'>
+        <div class='col-md-12'>
+          {{female_name}} was a {{job_title}} who loved technology. Although she loved parts of her job, she absolutely hated  {{tedious_task}} and {{dirty_task}}. So, {{female_name}} met with her life mentor {{celebrity}} who told her to learn how to {{useless_skill}} with Thinkful. Thinkful didn't offer a course on {{useless_skill}} so she studied programming instead.
+       
+          What a great decision! With her new skills, {{female_name}} built a(n) {{adjective}} robot named {{obnoxiuous_celebrity}} that not only loved {{dirty_task}} but did it {{huge_number}} times faster.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
